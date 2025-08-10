@@ -1,0 +1,223 @@
+<!-- index.html - Lilac Latte Lounge (single file) -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Lilac Latte Lounge</title>
+  <meta name="description" content="Lilac Latte Lounge — Slow sips, soft corners, slightly obsessive aesthetics. Reserve a cozy spot." />
+
+  <!-- Simple reset + fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#FBF8F6;
+      --lilac:#E9D6F7;
+      --deep:#8B5E8A;
+      --warm:#F6EDE6;
+      --sage:#A9C6B5;
+      --muted:#7B6F6F;
+      --glass: rgba(255,255,255,0.6);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: "Quicksand",system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: linear-gradient(180deg, var(--bg), #fff);
+      color:var(--muted);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+    }
+
+    /* Container */
+    .wrap{
+      max-width:1100px;
+      margin:40px auto;
+      padding:28px;
+    }
+
+    /* Header */
+    header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+    }
+    .logo{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      text-decoration:none;
+      color:var(--deep);
+    }
+    .badge{
+      width:48px; height:48px; border-radius:12px;
+      background: linear-gradient(135deg,var(--lilac), #F3E6F8);
+      box-shadow: 0 6px 20px rgba(139,94,138,0.08);
+      display:flex;align-items:center;justify-content:center;
+      font-family:"Playfair Display", serif;
+      color:var(--deep);
+      font-weight:700;
+    }
+    .nav a{ text-decoration:none; color:var(--muted); margin-left:18px; font-weight:600; }
+
+    /* Hero */
+    .hero{
+      margin-top:28px;
+      background: linear-gradient(120deg, rgba(233,214,247,0.55), rgba(246,237,230,0.6));
+      border-radius:18px;
+      padding:36px;
+      display:grid;
+      grid-template-columns: 1fr 420px;
+      gap:28px;
+      align-items:center;
+    }
+    .hero-left h1{
+      font-family:"Playfair Display",serif;
+      font-size:48px;
+      margin:0 0 10px 0;
+      color:var(--deep);
+      letter-spacing: -0.5px;
+    }
+    .hero-left p.lead{
+      margin:0 0 20px 0;
+      color:#5e5252;
+      font-size:18px;
+    }
+    .cta-row{display:flex;gap:12px;align-items:center}
+    .btn{
+      display:inline-flex;align-items:center;gap:10px;
+      padding:12px 18px;border-radius:12px;
+      border:0;cursor:pointer;font-weight:700;
+      color:white;background:linear-gradient(90deg,#9b6bb6,#7b4b88);
+      box-shadow:0 8px 20px rgba(123,75,136,0.15);
+      text-decoration:none;
+    }
+    .btn.ghost{
+      background:transparent;color:var(--deep);border:1px solid rgba(123,75,136,0.08);
+    }
+    .features{
+      display:flex;gap:12px;margin-top:18px;flex-wrap:wrap;
+    }
+    .feature{
+      background:var(--glass);
+      border-radius:10px;padding:10px 12px;font-size:14px;color:#514848;
+      display:flex;align-items:center;gap:8px;backdrop-filter: blur(6px);
+    }
+
+    /* Right card (image mock) */
+    .card{
+      background: url('https://images.unsplash.com/photo-1541542684-92e3c1c6e1d2?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=5f2f07d0a5d528e3b2aab8c8f2d89b3f') center/cover no-repeat;
+      border-radius:14px;height:320px;position:relative;box-shadow:0 12px 30px rgba(0,0,0,0.06);
+      display:flex;flex-direction:column;justify-content:flex-end;padding:18px;color:white;
+    }
+    .card .tag{
+      background:linear-gradient(90deg, rgba(0,0,0,0.25), rgba(0,0,0,0.12));
+      padding:8px 12px;border-radius:999px;font-weight:700;font-size:13px;backdrop-filter: blur(2px);
+    }
+
+    /* Details */
+    .section{
+      margin-top:26px;display:grid;grid-template-columns:repeat(3,1fr);gap:18px;
+    }
+    .pill{
+      background:var(--warm);border-radius:12px;padding:16px;
+      text-align:center;box-shadow: 0 8px 20px rgba(168,198,181,0.08);
+    }
+    .pill h4{margin:0 0 8px 0;color:var(--deep);font-family:"Playfair Display"}
+    .testimonial{margin-top:22px;padding:18px;border-radius:12px;background:#fff;box-shadow:0 8px 20px rgba(0,0,0,0.03)}
+
+    footer{margin-top:34px;text-align:center;color:#9b8f8f;font-size:14px;padding-bottom:30px}
+
+    /* Responsive */
+    @media (max-width:920px){
+      .hero{grid-template-columns:1fr}
+      .card{height:240px}
+      .section{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <a class="logo" href="#">
+        <div class="badge">LL</div>
+        <div>
+          <div style="font-weight:700;color:var(--deep)">Lilac Latte Lounge</div>
+          <div style="font-size:13px;color:#9b8f8f">slow sips • soft corners</div>
+        </div>
+      </a>
+
+      <nav class="nav" aria-label="primary">
+        <a href="#menu">Menu</a>
+        <a href="#about">About</a>
+        <a href="mailto:reserve@lilaclatte.fake?subject=Reservation%20Request">Reserve</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="heroHeading">
+        <div class="hero-left">
+          <h1 id="heroHeading">Lilac Latte Lounge</h1>
+          <p class="lead">Slow sips, soft corners, slightly obsessive aesthetics. Window nooks, hand-thrown mugs, and toast that’s borderline art.</p>
+
+          <div class="cta-row">
+            <a class="btn" id="reserveBtn" href="mailto:reserve@lilaclatte.fake?subject=Reservation%20Request">Reserve a Cozy Spot</a>
+            <a class="btn ghost" href="#menu">See Menu</a>
+          </div>
+
+          <div class="features" aria-hidden="false">
+            <div class="feature">☕ Single-origin pours</div>
+            <div class="feature">🥐 Daily-baked pastries</div>
+            <div class="feature">🌿 Plant-first interior</div>
+          </div>
+        </div>
+
+        <aside class="card" role="img" aria-label="Cozy cafe corner with pastel decor">
+          <div style="display:flex;justify-content:space-between;align-items:center;">
+            <div class="tag">Now open • Soft seating</div>
+            <div style="font-weight:700;background:rgba(255,255,255,0.18);padding:8px 10px;border-radius:10px;font-size:13px;">Open 8am–7pm</div>
+          </div>
+        </aside>
+      </section>
+
+      <section class="section" id="about">
+        <div class="pill">
+          <h4>Why Lilac?</h4>
+          <p>We curate small joys: sunlight, warm ceramics, slow music, and coffee you’ll remember.</p>
+        </div>
+        <div class="pill" id="menu">
+          <h4>Top Picks</h4>
+          <p>Lavender Latte • Honey Lavender Toast • Cardamom Cold Brew</p>
+        </div>
+        <div class="pill">
+          <h4>Opening Offer</h4>
+          <p>First 50 reservations get a free mini scone.</p>
+        </div>
+      </section>
+
+      <div class="testimonial" aria-live="polite">
+        <strong>“I came for the latte, stayed for the vibes.”</strong>
+        <div style="margin-top:8px;font-size:14px;color:#6f6161">— A very satisfied imaginary patron</div>
+      </div>
+    </main>
+
+    <footer>
+      Built for a class project • Put this in a GitHub repo & enable Pages to host it. <br />
+      <small>Design cues: pastel palettes, plant accents, soft lighting (Pinterest cafe aesthetic).</small>
+    </footer>
+  </div>
+
+  <script>
+    // small UX: focus on CTA when pressing reserve
+    document.getElementById('reserveBtn').addEventListener('click', function(){
+      // small visual feedback for demo (does not submit)
+      this.style.transform = 'translateY(-1px)';
+      setTimeout(()=> this.style.transform='none',140);
+    });
+  </script>
+</body>
+</html>
